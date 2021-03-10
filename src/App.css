@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+}
+
+.container{
+    width: 1170px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+  }
+  .content{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin:15% auto
+  }
+  .task-container{
+   
+    margin: 5% auto;
+    padding: 2.5%;
+  }
+  .task-header{
+    font-weight: bold;
+    color: #424242;
+  }
+  .tasks{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d0d0d0;
+  }
+  .task-list{
+    font-size:14px;
+    list-style: decimal;
+  }
+  .task-add{
+      margin: 15px;
+  }
+
+  .task-add .form-group{
+    margin: 15px 0 ;
+  }
+
+  .form-control{
+    margin-bottom: 15px;
+  }
+
+  .btn{
+    display: block;
+    padding: 10px;
+    border: 0;
+    background-color: #daffe0;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group input{
+    padding: 10px;
+    border:1px solid #444
+    
+  }
+
+  .panel{
+    border: 1px solid #eee;
+    padding: 10px;
+  }
+
+  .btn-block{
+    width: 100%;
+    display: block;
+  }
+
+  .author{
+    font-size: 12px;
+    font-weight: bold;
+    
+  }
