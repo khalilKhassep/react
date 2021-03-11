@@ -24,12 +24,12 @@ const appState =
 }
 
 
-function AppTwo(props) {
+function AppTwo() {
 
 
     const [tasks, setTasks] = useState([]);
     const [author, setAuthor] = useState('');
-    const [value, setValue] = useState(''); 
+    const [value, setValue] = useState('');
 
     //console.log('Tasks firset render => ',tasks , author) 
 
@@ -39,23 +39,7 @@ function AppTwo(props) {
         setAuthor(appState.author)
     }, [])
 
-    // function sotreTask() {
-    //     const taskObj = {
-    //         title: value,
-    //         id: `task_${generateId(20, 1)}`,
-    //         created_at: new Date().toLocaleDateString(),
-    //     }
-    //     setTasks(prevState => {
-    //         return [...prevState, taskObj];
-    //     })
 
-    // }
-
-
-
-
-    //  console.log('Valkue => ',tasks.length)
-    console.log('APp comp => ',value)
 
     return (
         <div className="container">
@@ -66,7 +50,7 @@ function AppTwo(props) {
                 </div>
                 <div className="panel-body">
                     <div className="taskList">
-                        <Todos todosList={tasks} author={author}/>
+                        <Todos todosList={tasks} author={author} />
                         <Form setValue={setValue} setTasks={setTasks} text={value}></Form>
                     </div>
                 </div>
@@ -81,18 +65,5 @@ function AppTwo(props) {
 }
 
 
-function List(props) {
-    const listItems = props.items.map((item, index) => {
-        return <li>{item.title}</li>
-    })
-    return (
-        //  List item > title + date + id ;
-        listItems
-    )
-}
-
-function generateId(max, min) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
 
 export default AppTwo
