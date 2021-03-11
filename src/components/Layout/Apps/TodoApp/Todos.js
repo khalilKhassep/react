@@ -11,16 +11,22 @@ const Todos = ({ todosList, author }) => {
                     return (
 
                         <li taskid={item.id} key={index} className={'task'}>
-                            <h4>{item.title}</h4>
-                            <span className="date"> <span>{'Created at : '}</span>{item.created_at}</span>
-                            <p className="author">{author}</p>
+                            <div className={'content'}>   
+                                <h4>{item.title}</h4>
+                                <p className="date"> <span>{'Created at  '}</span>{item.created_at}</p>
+                                <p className="author"> <span>{'Author'}</span>{author}</p>
+                            </div>
+                            <div className={'actions'} >
+                                <button type="submit" className={'btn danger'}>{'Delete Task'}</button>
+                                <button type={'submit'} className={"btn successful"}> {'Complete Task'} </button>
+                            </div>
                         </li>
                     )
-                })
+                }) 
             }
         </ul>
 
     )
 }
 
-export default Todos;
+export default Todos; 

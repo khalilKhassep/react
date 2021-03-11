@@ -26,7 +26,7 @@ const Form = ({ setValue, setTasks, text }) => {
             <div className="form-group">
                 <input onChange={inputHandler} type="text" className="form-controle" placeholder={'Enter Task '} />
             </div>
-            <button onClick={sotreTask} className={'btn'}>{'Add'}</button>
+            <button onClick={sotreTask} className={'btn primary'}>{'Add'}</button>
         </div>
 
     )
