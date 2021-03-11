@@ -61,6 +61,18 @@
   .panel{
     border: 1px solid #eee;
     padding: 10px;
+    width: 40%;
+    margin: 10% auto;
+  }
+
+  .panel-header{
+    text-align: center;
+    border-bottom: 1px solid #a1b1fd;
+  }
+
+
+  .panel-footer{
+    text-align: center;
   }
 
   .btn-block{
@@ -73,3 +85,32 @@
     font-weight: bold;
     
   }
+
+  .addTask input {
+    display: block;
+    width: 94%;
+    padding: 2.5%;
+    margin: 0 auto;
+  }
+
+  .addTask .btn {
+    width: 100%;
+  }
+   .task { 
+     margin:25px 0 0 0;
+   }
+  .task > *{
+    margin: 0;
+  }
+
+  .task .date { 
+    font-size: 11px;
+    font-weight: bold;
+    color: #464646;
+  }
+
+  .task .author{
+    color: #464646;
+  }
+
+  

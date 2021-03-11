@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react"
+//import React from 'react';
+//import Fuse from 'fuse.js'
+import '../../App.css';
+
+import Form from '../Elements/Form';
+import Todos from '../Layout/Apps/TodoApp/Todos'
 
 const appState =
 {
@@ -33,53 +39,35 @@ function AppTwo(props) {
         setAuthor(appState.author)
     }, [])
 
-    function sotoreTask() {
-        const taskObj = {
-            title: value,
-            id: `task_${generateId(20, 1)}`,
-            created_at: new Date().toLocaleDateString(),
-        }
-        setTasks(prevState => {
-            return [...prevState, taskObj];
-        })
+    // function sotreTask() {
+    //     const taskObj = {
+    //         title: value,
+    //         id: `task_${generateId(20, 1)}`,
+    //         created_at: new Date().toLocaleDateString(),
+    //     }
+    //     setTasks(prevState => {
+    //         return [...prevState, taskObj];
+    //     })
 
-    }
-
-
+    // }
 
 
-    // console.log('Valkue => ',value)
+
+
+    //  console.log('Valkue => ',tasks.length)
+    console.log('APp comp => ',value)
+
     return (
         <div className="container">
             <div className="panel">
                 <div className="panel-header">
                     <h4 className="title">{'Tasks'}</h4>
-                    <h6>{`Total Tasks : 5`}</h6>
+                    <h6>{`Total Tasks : ${tasks.length}`}</h6>
                 </div>
                 <div className="panel-body">
                     <div className="taskList">
-                        <ul className="tasks">
-                            {
-                                tasks.map((item, index) => {
-
-                                    return (
-
-                                        <li taskid={item.id} key={index}>
-                                            <h4>{item.title}</h4>
-                                            <span> <span>{'Created at : '}</span>{item.created_at}</span>
-                                            <p className="author">{author}</p>
-                                        </li>
-                                    )
-                                })
-                            }
-                        </ul>
-
-                        <div className="addTask">
-                            <div className="form-group">
-                                <input onChange={e => { setValue(e.target.value) }} type="text" className="form-controle" placeholder={'Enter Task '} />
-                            </div>
-                            <button onClick={sotoreTask} className={'btn'}>{'Add'}</button>
-                        </div>
+                        <Todos todosList={tasks} author={author}/>
+                        <Form setValue={setValue} setTasks={setTasks} text={value}></Form>
                     </div>
                 </div>
 
