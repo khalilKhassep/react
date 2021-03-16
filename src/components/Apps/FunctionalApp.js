@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 //import React from 'react';
 //import Fuse from 'fuse.js'
 import '../../App.css';
-
+//   import generateId from '../../Modules';
 import Form from '../Elements/Form';
 import Todos from '../Layout/Apps/TodoApp/Todos'
 
@@ -11,13 +11,15 @@ const appState =
     tasksDemo: [
         {
             title: "Task title demo",
-            id: "demo_1",
+            id: `task_${generateId(2000, 41)}`,
             created_at: new Date().toLocaleDateString(),
+            completed:false,
         },
         {
             title: "Task title demo 2",
-            id: "demo_2",
+            id: `task_${generateId(2000, 41)}`,
             created_at: new Date().toLocaleDateString(),
+            completed:false,
         }
     ],
     author: "Khalil Khassep"
@@ -52,7 +54,7 @@ function AppTwo() {
                 </div>
                 <div className="panel-body">
                     <div className="taskList">
-                        <Todos todosList={tasks} author={author} />
+                        <Todos todosList={tasks} setTasks={setTasks} author={author} />
                         <Form setValue={setValue} setTasks={setTasks} text={value}></Form>
                     </div>
                 </div>
@@ -65,7 +67,11 @@ function AppTwo() {
     )
 
 }
+function generateId(max, min) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
 
 
 
 export default AppTwo
+

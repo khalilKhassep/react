@@ -157,3 +157,8 @@
   .successful{
     background-color: #daffe0;
   }
+
+  .completed{
+    text-decoration: line-through;
+    color: #4691f6;
+  }
