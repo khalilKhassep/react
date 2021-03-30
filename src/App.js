@@ -2,7 +2,7 @@ import React from 'react';
 import Fuse from 'fuse.js'
 import './App.css';
 
-import List from './components/Layout/List';
+import List from './components/layout/List';
 
 class App extends React.Component {
   //Parent Componenet all other component renders here at main enrtyPoint 
@@ -171,3 +171,4 @@ class App extends React.Component {
   }
 }
 export default App;
+//Broke :: clean main App

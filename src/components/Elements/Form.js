@@ -1,46 +1,54 @@
-import React from 'react';
- 
-  
+import React, { useEffect, useState } from 'react';
+//  import _React from ''
 
-const Form = ({ setValue, setTasks, text }) => {
+import { postRequest, generateId } from '../Modules';
 
-    function sotreTask() {
-        const taskObj = {
-            title: text,
-            id: `task_${generateId(2000, 41)}`,
-            created_at: new Date().toLocaleDateString(),
-            completed:false,
-        }
-        setTasks(prevState => {
-            return [...prevState, taskObj];
-        })
-        setValue('');
 
-    }
+const Form = ({ setValue, setTasks,setUpdates, text }) => {
 
+    const [mounted, setMounted] = useState(false);
     const inputHandler = (e) => {
         setValue(e.target.value)
     }
 
-    console.log('Form comp => ', text)
+    const _storeTaskToDatabase = async () => {
+        
+        setMounted(true);
+        setUpdates(true);
+        
+        const id = generateId(100, 1);
+        const taskObj = {
+        
+            title: text !== '' ? text : `Untitled-${id}` , id: `task_${id}` , 
+            created_at: new Date().toLocaleDateString() , completed: false,
+        }
+      
+        await postRequest('http://localhost:3333/tasks', taskObj).then((resolved) => {
+            setTasks(prevstate => {
+                return [...prevstate, resolved]
+
+            })
+        }).then(setValue('')).catch(console.log)
+
+        setMounted(false);
+        setUpdates(false);
+    }
 
     return (
-        <div className="addTask">
+        <div className={`addTask`}>
             <div className="form-group">
                 <input value={text} onChange={inputHandler} type="text" className="form-controle" placeholder={'Enter Task '} />
             </div>
-            <button onClick={sotreTask} className={'btn primary'}>{'Add'}</button>
+            <button onClick={_storeTaskToDatabase} className={`btn primary ${mounted && 'loading'}`}>{'Add'}</button>
+            <p>{mounted && 'Loading'}</p>
         </div>
 
     )
 
-    
+
 
 }
-
-function generateId(max, min) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-
 
 export default Form;
+
+//Neeed clean :: Format code typing ;
