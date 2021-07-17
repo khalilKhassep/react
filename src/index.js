@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import App2 from './FunctionalApp'
+import TodoApp from './components/layout/TodoApp/TodoApp';
+// import App from './App';
+//import App from './components/'
+
 import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
-
-    
-    <App2  />
+   <TodoApp  />
   </React.StrictMode>,
   document.getElementById('root')
 );

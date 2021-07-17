@@ -2,74 +2,241 @@
   text-align: center;
 }
 
-.container{
-    width: 1170px;
-    margin: 0 auto;
-    position: relative;
-    display: block;
-  }
-  .content{
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    margin:15% auto
-  }
-  .task-container{
-   
-    margin: 5% auto;
-    padding: 2.5%;
-  }
-  .task-header{
-    font-weight: bold;
-    color: #424242;
-  }
-  .tasks{
-    padding-bottom: 10px;
-    border-bottom: 1px solid #d0d0d0;
-  }
-  .task-list{
-    font-size:14px;
-    list-style: decimal;
-  }
-  .task-add{
-      margin: 15px;
-  }
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 50%;
+  margin: 15% auto;
+}
+.task-container {
+  margin: 5% auto;
+  padding: 2.5%;
+}
+.task-header {
+  font-weight: bold;
+  color: #424242;
+}
+.tasks {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+.task-list {
+  font-size: 14px;
+  list-style: decimal;
+}
+.task-add {
+  margin: 15px;
+}
 
-  .task-add .form-group{
-    margin: 15px 0 ;
-  }
+.task-add .form-group {
+  margin: 15px 0;
+}
 
-  .form-control{
-    margin-bottom: 15px;
-  }
+.form-control {
+  margin-bottom: 15px;
+}
 
-  .btn{
-    display: block;
-    padding: 10px;
-    border: 0;
-    background-color: #daffe0;
-  }
-  .form-group {
-    margin-bottom: 15px;
-  }
-  .form-group input{
-    padding: 10px;
-    border:1px solid #444
-    
-  }
+.btn {
+  display: block;
+  padding: 10px;
+  border: 0;
+  background-color: #daffe0;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group input {
+  padding: 10px;
+  border: 1px solid #444;
+}
 
-  .panel{
-    border: 1px solid #eee;
-    padding: 10px;
-  }
+.panel {
+  border: 1px solid #eee;
+  padding: 10px;
+  width: 70%;
+  margin: 10% auto;
+}
 
-  .btn-block{
+.panel-header {
+  text-align: center;
+  border-bottom: 1px solid #a1b1fd;
+}
+
+.panel-footer {
+  text-align: center;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+.author {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.addTask input {
+  display: block;
+  width: 94%;
+  padding: 2.5%;
+  margin: 0 auto;
+}
+
+.addTask .btn {
+  width: 100%;
+}
+.task {
+  margin: 25px 0;
+  padding: 20px 5px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.task h4,
+span,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.task .actions {
+  display: flex;
+  justify-content: inherit;
+}
+
+.task .actions .btn:not(:last-child) {
+  margin-right: 10px;
+}
+.task > * {
+  margin: 0;
+}
+
+.task .date {
+  font-size: 11px;
+  font-weight: bold;
+  color: #464646;
+}
+
+.task .date > span {
+  display: block;
+  color: #a5c0f8;
+  font-weight: 400;
+}
+
+.task .author > span {
+  display: block;
+  color: #a5c0f8;
+  font-weight: 400;
+}
+
+.task .author {
+  color: #464646;
+}
+
+.danger {
+  background-color: #ffd7d7;
+}
+.primary {
+  background-color: rgb(56 115 240 / 45%);
+}
+.successful {
+  background-color: #daffe0;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #4691f6;
+}
+
+.err-box{
+  text-align: center;
+    padding: 20px 0;
+    background: #4691f6;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+.addTask{
+  position: relative;
+}
+.overlay-blue:after{
+    content: '';
+    position: absolute;
     width: 100%;
-    display: block;
+    height: 100%;
+    z-index: 111;
+    background: #dbe8ff63;
+    top: 0;
+    box-shadow: 0 0 20px 0 #78afe88c;
+}
+.disable{
+  background-color: transparent;
+  color: #1a85e2;
+}
+.loading {
+  position: relative;
+}
+.loading:after {
+  content: ' .';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+ 
+  font-size: 25px;
+  animation: dots 1s steps(5, end) infinite;}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgb(0, 4, 255);
+    text-shadow:
+      .25em 0 0 rgb(10, 95, 223),
+      .5em 0 0 rgb(34, 10, 255);}
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}}
+
+@media only screen  and (min-width: 200px)   and (max-width:500px) {
+  .container {
+    width: 100%;
+  }
+  .panel {
+    width: 100%;
+    margin: 10% 0 0 0;
   }
 
-  .author{
-    font-size: 12px;
-    font-weight: bold;
-    
+  .tasks{
+    padding: 10px;
   }
+  .addTask{
+    padding: 25px;
+  }
+
+  .actions{
+    height: 35px;
+    line-height: 1px;
+  }
+
+}
